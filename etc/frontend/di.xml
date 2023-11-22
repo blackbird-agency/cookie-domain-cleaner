@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Blackbird\CookieDomainCleaner\Api\Service\CookieDomainFormatterInterface"
+                type="Blackbird\CookieDomainCleaner\Service\CookieDomainFormatter"/>
+    <preference for="Blackbird\CookieDomainCleaner\Api\Service\CookieCheckerInterface"
+                type="Blackbird\CookieDomainCleaner\Service\CookieChecker"/>
+    <preference for="Blackbird\CookieDomainCleaner\Api\Service\CookieRemoverInterface"
+                type="Blackbird\CookieDomainCleaner\Service\CookieRemover"/>
+    <type name="Magento\Framework\Stdlib\CookieManagerInterface">
+        <plugin name="remove_public_cookie" type="Blackbird\CookieDomainCleaner\Plugin\RemovePublicCookie"/>
+    </type>
+    <type name="Magento\Framework\Stdlib\CookieManagerInterface">
+        <plugin name="remove_sensitive_cookie" type="Blackbird\CookieDomainCleaner\Plugin\RemoveSensitiveCookie"/>
+    </type>
+    <type name="Magento\Framework\Session\SessionManager">
+        <plugin name="prevent_phpsessid_header_removal"
+                type="Blackbird\CookieDomainCleaner\Plugin\PreventPhpsessidHeaderRemoval"/>
+    </type>
+</config>

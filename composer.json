@@ -1,0 +1,26 @@
+{
+    "name": "blackbird/cookie-domain-cleaner",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Blackbird Agency",
+            "email": "contact@bird.eu",
+            "homepage": "https://black.bird.eu/"
+        }
+    ],
+    "description": "Automatically delete cookies from parent domain",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*",
+        "magento/module-cookie": "100.4.*"
+    },
+    "license": "MIT",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Blackbird\\CookieDomainCleaner\\": ""
+        }
+    }
+}
