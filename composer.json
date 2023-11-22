@@ -8,7 +8,7 @@
             "homepage": "https://black.bird.eu/"
         }
     ],
-    "description": "Automatically delete cookies from parent domain",
+    "description": "This Magento 2 module will clean cookies from parent domains gradually while navigating on the site on a subdomain",
     "type": "magento2-module",
     "require": {
         "magento/framework": "*",
