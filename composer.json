@@ -11,6 +11,7 @@
     "description": "This Magento 2 module will clean cookies from parent domains gradually while navigating on the site on a subdomain",
     "type": "magento2-module",
     "require": {
+        "php": ">=8.1.0",
         "magento/framework": "*",
         "magento/module-cookie": "100.4.*"
     },
