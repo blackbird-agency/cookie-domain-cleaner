@@ -15,3 +15,11 @@ composer require blackbird/cookie-domain-cleaner
 ```bash
 php bin/magento setup:upgrade
 ```
+
+## Alternatives
+
+There are 3 ways to solve similar issues :
+
+- Install this module
+- Add a subdomain (e.g. `www`) for the production environment
+- Rename the `PHPSESSID` with an unique name for each environment
