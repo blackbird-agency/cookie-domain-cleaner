@@ -27,7 +27,7 @@ class RemoveSensitiveCookie
         CookieManagerInterface  $subject,
         string                  $name,
         ?string                 $value,
-        SensitiveCookieMetadata $metadata = null,
+        ?SensitiveCookieMetadata $metadata = null,
     ): array {
         try {
             // Optimise this plugin by checking if there are duplicates in request cookies

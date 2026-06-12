@@ -27,7 +27,7 @@ class RemovePublicCookie
         CookieManagerInterface $subject,
         string                 $name,
         ?string                $value,
-        PublicCookieMetadata   $metadata = null,
+        ?PublicCookieMetadata   $metadata = null,
     ): array {
         try {
             // Optimise this plugin by checking if there are duplicates in request cookies

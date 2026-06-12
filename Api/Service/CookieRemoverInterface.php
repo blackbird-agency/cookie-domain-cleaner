@@ -12,12 +12,12 @@ interface CookieRemoverInterface
     public function deletePublicCookieFromParentDomain(
         string               $name,
         ?string              $value,
-        PublicCookieMetadata $metadata = null,
+        ?PublicCookieMetadata $metadata = null,
     ): void;
 
     public function deleteSensitiveCookieFromParentDomain(
         string                  $name,
         ?string                 $value,
-        SensitiveCookieMetadata $metadata = null,
+        ?SensitiveCookieMetadata $metadata = null,
     ): void;
 }

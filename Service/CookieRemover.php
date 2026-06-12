@@ -35,7 +35,7 @@ class CookieRemover implements CookieRemoverInterface
     public function deletePublicCookieFromParentDomain(
         string               $name,
         ?string              $value,
-        PublicCookieMetadata $metadata = null,
+        ?PublicCookieMetadata $metadata = null,
     ): void {
         $currentCookieDomain  = $this->sessionConfig->getCookieDomain();
         $parentCookieDomain   = $this->cookieDomainFormatter->getParentDomainFromCookieDomain($currentCookieDomain);

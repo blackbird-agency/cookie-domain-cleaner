@@ -9,7 +9,7 @@ use Magento\Framework\Exception\LocalizedException;
 
 class CookieDomainIsAlreadyParentDomainException extends LocalizedException
 {
-    public function __construct(Phrase $phrase = null, \Exception $cause = null, $code = 0)
+    public function __construct(?Phrase $phrase = null, ?\Exception $cause = null, $code = 0)
     {
         if ($phrase === null) {
             $phrase = __('The cookie domain is already a parent domain');
