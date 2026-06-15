@@ -59,7 +59,7 @@ class CookieRemover implements CookieRemoverInterface
     public function deleteSensitiveCookieFromParentDomain(
         string                  $name,
         ?string                 $value,
-        SensitiveCookieMetadata $metadata = null,
+        ?SensitiveCookieMetadata $metadata = null,
     ): void {
         $currentCookieDomain  = $this->sessionConfig->getCookieDomain();
         $parentCookieDomain   = $this->cookieDomainFormatter->getParentDomainFromCookieDomain($currentCookieDomain);
