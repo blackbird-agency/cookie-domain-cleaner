@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Blackbird\CookieDomainCleaner\Plugin;
 
-use Blackbird\CookieDomainCleaner\Plugin\LocalizedException;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Stdlib\CookieManagerInterface;
 use Blackbird\CookieDomainCleaner\Api\Service\CookieRemoverInterface;
 use Blackbird\CookieDomainCleaner\Api\Service\CookieCheckerInterface;
