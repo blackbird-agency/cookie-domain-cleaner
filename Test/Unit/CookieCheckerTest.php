@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Blackbird\CookieDomainCleaner\Test\Unit;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Blackbird\CookieDomainCleaner\Service\CookieChecker;
 use Magento\Framework\Exception\LocalizedException;
 use Blackbird\CookieDomainCleaner\Exception\CannotReadParentDomainCookiesException;
@@ -23,7 +24,7 @@ class CookieCheckerTest extends TestCase
         $this->subject = null;
     }
 
-    public function getValidCookiesStringCases(): array
+    public static function getValidCookiesStringCases(): array
     {
         return [
             ['b', 'a=1; b=2; b=3;', true],
@@ -36,6 +37,7 @@ class CookieCheckerTest extends TestCase
     /**
      * @dataProvider getValidCookiesStringCases
      */
+    #[DataProvider('getValidCookiesStringCases')]
     public function testWithValidCookiesStringWillReturnValue(
         string $cookieName,
         string $serverCookieString,
@@ -48,7 +50,7 @@ class CookieCheckerTest extends TestCase
         self::assertEquals($expectedResult, $result);
     }
 
-    public function getInvalidCookiesStringCases(): array
+    public static function getInvalidCookiesStringCases(): array
     {
         return [
             ['a', '', CannotReadParentDomainCookiesException::class],
@@ -60,6 +62,7 @@ class CookieCheckerTest extends TestCase
     /**
      * @dataProvider getInvalidCookiesStringCases
      */
+    #[DataProvider('getInvalidCookiesStringCases')]
     public function testWithInvalidCookiesStringWillThrowException(
         string $cookieName,
         string $serverCookieString,
