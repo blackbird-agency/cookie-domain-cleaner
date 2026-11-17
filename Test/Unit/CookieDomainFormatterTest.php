@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Blackbird\CookieDomainCleaner\Test\Unit;
 
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 use Blackbird\CookieDomainCleaner\Service\CookieDomainFormatter;
 use Blackbird\CookieDomainCleaner\Exception\InvalidCookieDomainException;
 use Blackbird\CookieDomainCleaner\Exception\CookieDomainIsAlreadyParentDomainException;
@@ -23,7 +24,7 @@ class CookieDomainFormatterTest extends TestCase
         $this->subject = null;
     }
 
-    public function getValidCookieDomainCases(): array
+    public static function getValidCookieDomainCases(): array
     {
         return [
             ['bultex.cofel.test', 'cofel.test'],
@@ -35,6 +36,7 @@ class CookieDomainFormatterTest extends TestCase
     /**
      * @dataProvider getValidCookieDomainCases
      */
+    #[DataProvider('getValidCookieDomainCases')]
     public function testWithValidCookieDomainWillReturnParentCookieDomain(
         string $cookieDomain,
         string $expectedParentDomain,
@@ -44,7 +46,7 @@ class CookieDomainFormatterTest extends TestCase
         self::assertEquals($expectedParentDomain, $resultingParentDomain);
     }
 
-    public function getInvalidCookieDomainCases(): array
+    public static function getInvalidCookieDomainCases(): array
     {
         return [
             ['.bultex'],
@@ -59,6 +61,7 @@ class CookieDomainFormatterTest extends TestCase
     /**
      * @dataProvider getInvalidCookieDomainCases
      */
+    #[DataProvider('getInvalidCookieDomainCases')]
     public function testWithInvalidCookieDomainWillThrowAnException(string $cookieDomain): void
     {
         $this->expectException(InvalidCookieDomainException::class);
